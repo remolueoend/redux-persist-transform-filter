@@ -1,0 +1,9 @@
+{
+  "name": "redux-persist-transform-filter",
+  "version": "0.1.0",
+  "description": "Alternative redux-persist transformation for persisting only specific paths of a state.",
+  "main": "build/index.js",
+  "repository": "git@github.com:remolueoend/redux-persist-transform-filter.git",
+  "author": "Remo Zumsteg <remolueoend@users.noreply.github.com>",
+  "license": "MIT"
+}
