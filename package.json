@@ -5,5 +5,8 @@
   "main": "build/index.js",
   "repository": "git@github.com:remolueoend/redux-persist-transform-filter.git",
   "author": "Remo Zumsteg <remolueoend@users.noreply.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.25.0"
+  }
 }
