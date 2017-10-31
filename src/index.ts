@@ -3,7 +3,7 @@
  */
 
 import { assocPath, path as getAtPath, fromPairs } from 'ramda';
-import { createTransform } from 'redux-persist';
+const { createTransform } = require('redux-persist').default;
 
 export type OutConverter = (val: {}) => {};
 export type InConverter = (val: {}) => {};
@@ -62,11 +62,11 @@ export const persistPaths = (paths: (PathDef | string)[]) => {
     fromPairs(rootPaths.map(r => getRootReducerPaths(r, splittedPaths))) as { [root: string]: SplittedPathDef[] };
 
   return createTransform(
-    (state, key) =>
+    (state: {}, key: string) =>
       rootPaths.indexOf(key) !== -1
         ? fromPairs(reducerPaths[key].map(p => [p[0].join('.'), p[1](getAtPath(p[0], state))] as [string, {}]))
         : undefined,
-    (state, key) =>
+    (state: {[path: string]: {}}, key: string) =>
       rootPaths.indexOf(key) !== -1 && !!state
         ? reducerPaths[key].reduce((p, c) => assocPath(c[0], c[2](state[c[0].join('.')]), p), {})
         : {},
